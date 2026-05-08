@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrusel de Imágenes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+    }
+
+    .carrusel {
+      position: relative;
+      width: 400px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .imagenes {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .imagenes img {
+      width: 400px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .botones {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Carrusel de Imágenes</h2>
+
+  <div class="carrusel">
+    <div class="imagenes" id="imagenes">
+      <img src="https://picsum.photos/id/1015/400/250" alt="Imagen 1">
+      <img src="https://picsum.photos/id/1016/400/250" alt="Imagen 2">
+      <img src="https://picsum.photos/id/1018/400/250" alt="Imagen 3">
+    </div>
+  </div>
+
+  <div class="botones">
+    <button onclick="inicio()">Inicio</button>
+    <button onclick="anterior()">Anterior</button>
+    <button onclick="siguiente()">Siguiente</button>
+    <button onclick="fin()">Fin</button>
+  </div>
+
+  <script>
+    let indice = 0;
+    const imagenes = document.getElementById('imagenes');
+    const total = imagenes.children.length;
+
+    function actualizarCarrusel() {
+      imagenes.style.transform = `translateX(-${indice * 400}px)`;
+    }
+
+    function siguiente() {
+      if (indice < total - 1) {
+        indice++;
+        actualizarCarrusel();
+      }
+    }
+
+    function anterior() {
+      if (indice > 0) {
+        indice--;
+        actualizarCarrusel();
+      }
+    }
+
+    function inicio() {
+      indice = 0;
+      actualizarCarrusel();
+    }
+
+    function fin() {
+      indice = total - 1;
+      actualizarCarrusel();
+    }
+  </script>
+
+</body>
+</html>
