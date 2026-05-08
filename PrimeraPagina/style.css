@@ -1,0 +1,14 @@
+
+/* Color de fondo de la pagina web y la fuente de la letra*/
+body {
+    background-color: lightseagreen;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+h1 {
+    background-color: grey; /*Color de fondo del h1*/
+    color: white; /*Color de las letras del h1*/
+    display: inline-block; /*El fondo solo ocupara ese espacio*/
+    padding: 15px 20px; /* Los pixeles que ocupa el fondo */
+    border-radius: 5px; /* Hace los bordes mas redondos*/
+}
